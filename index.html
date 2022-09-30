@@ -12,7 +12,7 @@
       <table>
         <tbody>
           <h2>Current Tasks</h2>
-            <tr v-for="task in tasks">
+            <tr v-for="task in tasks" :key="task.id">
               <td v-if="!task.editable">
                 {{ task.content }}
               </td>

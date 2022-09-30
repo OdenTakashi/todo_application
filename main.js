@@ -13,6 +13,7 @@ const app = new Vue({
     addTask() {
       if (this.isEmpty(this.$refs.content.value)) { return }
       this.tasks.push({
+        id: Date.now(),
         content: this.$refs.content.value, 
         editable: false})
         localStorage.setItem('tasks', JSON.stringify(this.tasks))
