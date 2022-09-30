@@ -1,0 +1,36 @@
+h1 {
+  font-weight:lighter;
+  font-family: serif;
+  margin: 0 500px;
+  border-radius: 5px;
+}
+
+form {
+  margin: 60px 600px;
+}
+
+h2 {
+  font-weight:lighter;
+  font-family: serif;
+}
+
+#todo-table {
+  background-color: blanchedalmond;
+  font-weight:lighter;
+  font-family: serif;
+  height: 400px;
+  margin: 0 500px;
+  border-radius: 5px;
+}
+
+table td {
+  width: 100px;
+}
+
+table {
+  text-align: center;
+}
+
+button {
+  background-color: blanchedalmond;
+}

@@ -1,6 +1,7 @@
 const app = new Vue({
   el: '#app',
   data: {
+    image: "./assets/images/space_ship.jpg",
     tasks:  JSON.parse(localStorage.getItem("tasks")) || []
   },
   methods: {

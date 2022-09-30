@@ -6,34 +6,38 @@
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
+  <h1>ToDo App</h1>
   <div id="app">
     <div class="product-image">
       <img v-bind:src="image">
     </div>
-
-    <table>
-      <tbody>
-          <tr v-for="task in tasks">
-            <td v-if="!task.editable">{{ task.content }}</td>
-            <td v-else>
-              <input type="text" v-model="task.content">
-              <button v-on:click="updateTask(task)">Update</button>
-            </td>
-            <td class="button">
-              <button v-on:click="deleteTask(task)">
-                Delete
-              </button>
-            </td>
-            <td class="button">
-              <button v-on:click="editTask(task)">Edit</button>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
+    <div id="todo-table">
+      <table>
+        <tbody>
+          <h2>Current Tasks</h2>
+            <tr v-for="task in tasks">
+              <td v-if="!task.editable">
+                {{ task.content }}
+              </td>
+              <td v-else>
+                <input type="text" v-model="task.content">
+                <button v-on:click="updateTask(task)">Update</button>
+              </td>
+              <td class="button">
+                <button v-on:click="deleteTask(task)">
+                  Delete
+                </button>
+              </td>
+              <td class="button">
+                <button v-on:click="editTask(task)">Edit</button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
     <form class="add-form" v-on:submit.prevent="addTask">
-      Add Task <input type="text" ref="content" id="content">
-      <button type="submit">Add</button>
+      <input type="text" ref="content" id="content">
+      <button type="submit">Add Task</button>
     </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
