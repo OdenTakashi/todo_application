@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js App</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <div id="app">
+    <div class="product-image">
+      <img v-bind:src="image">
+    </div>
+
+    <table>
+      <tbody>
+          <tr v-for="task in tasks">
+            <td v-if="!task.editable">{{ task.content }}</td>
+            <td v-else>
+              <input type="text" v-model="task.content">
+              <button v-on:click="updateTask(task)">Update</button>
+            </td>
+            <td class="button">
+              <button v-on:click="deleteTask(task)">
+                Delete
+              </button>
+            </td>
+            <td class="button">
+              <button v-on:click="editTask(task)">Edit</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    <form class="add-form" v-on:submit.prevent="addTask">
+      Add Task <input type="text" ref="content" id="content">
+      <button type="submit">Add</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
