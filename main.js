@@ -6,7 +6,7 @@ const app = new Vue({
   },
   methods: {
     isEmpty(content) {
-      if (content == "") {
+      if (content === "") {
         alert('Please enter a letter')
         return true
       }
