@@ -1,7 +1,7 @@
 const app = new Vue({
   el: '#app',
   data: {
-    tasks:  JSON.parse(localStorage.getItem("tasks")) || [],
+    tasks: JSON.parse(localStorage.getItem("tasks")) || [],
     editable: false
   },
   methods: {
