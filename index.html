@@ -13,12 +13,12 @@
         <tbody>
           <h2>Current Tasks</h2>
             <tr v-for="task in tasks" :key="task.id">
-              <td v-if="!task.editable">
-                {{ task.content }}
+              <td v-if="editable">
+                <input type="text" v-model="task.content">
+                <button v-on:click="updateTask">Update</button>
               </td>
               <td v-else>
-                <input type="text" v-model="task.content">
-                <button v-on:click="updateTask(task)">Update</button>
+                {{ task.content }}
               </td>
               <td class="button">
                 <button v-on:click="deleteTask(task)">
