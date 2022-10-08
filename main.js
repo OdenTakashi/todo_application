@@ -2,23 +2,23 @@ const app = new Vue({
   el: '#app',
   data: {
     tasks: JSON.parse(localStorage.getItem("tasks")) || [],
-    editable_id: ""
+    editable_id: "",
+    content: ""
   },
   methods: {
     isEmpty(content) {
       return content === ""
     },
     addTask() {
-      if (this.isEmpty(this.$refs.content.value)) { 
+      if (this.isEmpty(this.content)) { 
         alert('Please enter a letter')
         return
       }
       this.tasks.push({
         id: Date.now(),
-        content: this.$refs.content.value})
+        content: this.content})
         localStorage.setItem('tasks', JSON.stringify(this.tasks))
-        const textForm = document.getElementById("content")
-        textForm.value = ""
+        this.content = ""
     },
     deleteTask(task) {
       const index = this.tasks.indexOf(task)
@@ -29,6 +29,7 @@ const app = new Vue({
       this.editable_id = task.id
     },
     updateTask(task) {
+      //TODO line:12と処理が同じ、共通化したい。
       if (this.isEmpty(task.content)) {
         alert('Please enter a letter')
         return 

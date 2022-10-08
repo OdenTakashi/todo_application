@@ -33,7 +33,7 @@
       </table>
     </div>
     <form class="add-form" v-on:submit.prevent="addTask">
-      <input type="text" ref="content" id="content">
+      <input type="text" v-model="content" id="content">
       <button type="submit">Add Task</button>
     </form>
   </div>
