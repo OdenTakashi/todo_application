@@ -13,9 +13,9 @@
         <tbody>
           <h2>Current Tasks</h2>
             <tr v-for="task in tasks" :key="task.id">
-              <td v-if="editable">
+              <td v-if="task.id === editable_id">
                 <input type="text" v-model="task.content">
-                <button v-on:click="updateTask">Update</button>
+                <button v-on:click="updateTask(task)">Update</button>
               </td>
               <td v-else>
                 {{ task.content }}

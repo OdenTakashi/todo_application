@@ -2,17 +2,17 @@ const app = new Vue({
   el: '#app',
   data: {
     tasks: JSON.parse(localStorage.getItem("tasks")) || [],
-    editable: false
+    editable_id: ""
   },
   methods: {
     isEmpty(content) {
-      if (content === "") {
-        alert('Please enter a letter')
-        return true
-      }
+      return content === ""
     },
     addTask() {
-      if (this.isEmpty(this.$refs.content.value)) { return }
+      if (this.isEmpty(this.$refs.content.value)) { 
+        alert('Please enter a letter')
+        return
+      }
       this.tasks.push({
         id: Date.now(),
         content: this.$refs.content.value})
@@ -25,12 +25,15 @@ const app = new Vue({
       this.tasks.splice(index, 1)
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     },
-    editTask() {
-      this.editable = true
+    editTask(task) {
+      this.editable_id = task.id
     },
     updateTask(task) {
-      if (this.isEmpty(task.content)) { return }
-      this.editable = false
+      if (this.isEmpty(task.content)) {
+        alert('Please enter a letter')
+        return 
+      }
+        this.editable_id = ""
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
   }
