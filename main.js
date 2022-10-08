@@ -1,9 +1,10 @@
-const app = new Vue({
-  el: '#app',
-  data: {
-    tasks: JSON.parse(localStorage.getItem("tasks")) || [],
-    editable_id: "",
-    content: ""
+const app = {
+  data() {
+    return {
+      tasks: JSON.parse(localStorage.getItem("tasks")) || [],
+      editable_id: "",
+      content: ""
+    }
   },
   methods: {
     isEmpty(content) {
@@ -38,4 +39,5 @@ const app = new Vue({
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
   }
-})
+}
+Vue.createApp(app).mount('#app')
