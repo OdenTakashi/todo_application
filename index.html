@@ -13,7 +13,7 @@
         <tbody>
           <h2>Current Tasks</h2>
             <tr v-for="task in tasks" :key="task.id">
-              <td v-if="task.id === editable_id">
+              <td v-if="task.id === editableId">
                 <input type="text" v-model="task.content">
                 <button v-on:click="updateTask(task)">Update</button>
               </td>
@@ -33,7 +33,7 @@
       </table>
     </div>
     <form class="add-form" v-on:submit.prevent="addTask">
-      <input type="text" v-model="content" id="content">
+      <input type="text" v-model="newContent" id="content">
       <button type="submit">Add Task</button>
     </form>
   </div>
