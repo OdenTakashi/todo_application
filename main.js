@@ -34,7 +34,7 @@ const app = {
         alert('Please enter a letter')
         return 
       }
-        this.editableId = ""
+      this.editableId = ""
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
   }
