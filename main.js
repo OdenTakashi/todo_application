@@ -2,7 +2,7 @@ const app = {
   data() {
     return {
       tasks: JSON.parse(localStorage.getItem("tasks")) || [],
-      editable_id: "",
+      editableId: "",
       newContent: ""
     }
   },
@@ -30,7 +30,6 @@ const app = {
       this.editable_id = task.id
     },
     updateTask(task) {
-      //TODO line:12と処理が同じ、共通化したい。
       if (this.isEmpty(task.content)) {
         alert('Please enter a letter')
         return 
