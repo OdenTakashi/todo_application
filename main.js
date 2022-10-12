@@ -3,7 +3,7 @@ const app = {
     return {
       tasks: JSON.parse(localStorage.getItem("tasks")) || [],
       editable_id: "",
-      content: ""
+      newContent: ""
     }
   },
   methods: {
@@ -11,13 +11,13 @@ const app = {
       return content === ""
     },
     addTask() {
-      if (this.isEmpty(this.content)) { 
+      if (this.isEmpty(this.newContent)) { 
         alert('Please enter a letter')
         return
       }
       this.tasks.push({
         id: Date.now(),
-        content: this.content})
+        content: this.newContent})
         localStorage.setItem('tasks', JSON.stringify(this.tasks))
         this.content = ""
     },
