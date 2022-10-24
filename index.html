@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <h1>ToDo App</h1>
+  <div id="app">
+    <div class="todo-table">
+      <table>
+        <tbody>
+          <h2>Current Tasks</h2>
+            <tr v-for="task in tasks" :key="task.id">
+              <td v-if="task.id === editableId">
+                <input type="text" v-model="task.content">
+                <button v-on:click="updateTask(task)">Update</button>
+              </td>
+              <td v-else>
+                {{ task.content }}
+              </td>
+              <td class="button">
+                <button v-on:click="deleteTask(task)">
+                  Delete
+                </button>
+              </td>
+              <td class="button">
+                <button v-on:click="editTask(task)">Edit</button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <form class="add-form" v-on:submit.prevent="addTask">
+      <input type="text" v-model="newContent" id="content">
+      <button type="submit">Add Task</button>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
